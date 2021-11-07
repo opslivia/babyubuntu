@@ -66,7 +66,16 @@ resource "azurerm_linux_virtual_machine" "main" {
     username   = "oliviac"
     public_key = file("~/.ssh/id_rsa.pub")
   }
+  
+  data "azurerm_ssh_public_key" "main" {
+  name                = "babyubuntu-sshkey"
+  resource_group_name = azurerm_resource_group.main.name
+}
 
+output "id" {
+  value = data.azurerm_ssh_public_key.main.id
+}
+  
   os_disk {
     caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"

@@ -67,9 +67,3 @@ resource "azurerm_linux_virtual_machine" "main" {
     version   = "latest"
   }
 }
-resource "azurerm_ssh_public_key" "main" {
-  name                = "babyubuntu-sshkey"
-  resource_group_name = "azurerm_resource_group.main.name"
-  location            = "westus2"
-  public_key          = file("~/.ssh/id_rsa.pub")
-}

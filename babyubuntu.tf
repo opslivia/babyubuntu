@@ -61,7 +61,7 @@ resource "azurerm_linux_virtual_machine" "main" {
   network_interface_ids = [
     azurerm_network_interface.main.id,
   ]
-
+}
   admin_ssh_key {
     username   = "oliviac"
     public_key = file("~/.ssh/id_rsa.pub")

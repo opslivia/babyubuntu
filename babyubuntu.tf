@@ -8,13 +8,6 @@ terraform {
   }
 
   required_version = ">= 0.14.9"
-
-backend "remote" {
-  organization = "AZproviders"
-  workspaces {
-    name = "babyubuntu"
-    }
-  } 
 }
 
 provider "azurerm" {
@@ -61,7 +54,7 @@ resource "azurerm_linux_virtual_machine" "main" {
   network_interface_ids = [
     azurerm_network_interface.main.id,
   ]
-}
+
   admin_ssh_key {
     username   = "oliviac"
     public_key = file("~/.ssh/id_rsa.pub")

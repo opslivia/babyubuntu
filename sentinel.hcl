@@ -5,7 +5,12 @@ policy "restrict-vm-size" {
     enforcement_level = "soft-mandatory"
 }
 
-policy "restrict-region" {
-    source = "./restrict-region.sentinel"
+policy "restrict-day" {
+    source = "./restrict-day.sentinel"
     enforcement_level = "soft-mandatory"
 }
+
+#policy "restrict-region" {
+#    source = "./restrict-region.sentinel"
+#    enforcement_level = "soft-mandatory"
+#}

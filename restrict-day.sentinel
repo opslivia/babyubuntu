@@ -3,4 +3,4 @@ import "time"
 day = time.now.weekday
 print ("no tf applies on friday")
 
-main = rule { day =! 5 }
+main = rule { day != 5 }

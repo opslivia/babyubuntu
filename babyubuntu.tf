@@ -51,10 +51,12 @@ resource "azurerm_linux_virtual_machine" "main" {
   location            = azurerm_resource_group.main.location
   size                = "Standard_B1s"
   admin_username      = "oliviac"
+  admin_password      = ")1!^!@c"
+  disable_password_authentication = false  
   network_interface_ids = [
     azurerm_network_interface.main.id,
   ]
-  
+    
   os_disk {
     caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"
@@ -65,13 +67,5 @@ resource "azurerm_linux_virtual_machine" "main" {
     offer     = "UbuntuPro"
     sku       = "16.04-LTS"
     version   = "latest"
-  }
-  os_profile {
-    computer_name  = "hostname"
-    admin_username = "ocadmin"
-    admin_password = "0c@dm!n"
-  }
-  os_profile_linux_config {
-    disable_password_authentication = false
   }
 }

@@ -6,10 +6,8 @@ allowed_region = [
   "centralus",
 ]
 
+rg_region = tfplan.module([]).resources.azurerm_resource_group.applied.location
+
 main = rule {
-  all tfplan.resources.azurerm_resource_group as _, RG {
-    all RG as _, r {
-      r.applied.location in allowed_region
-    }
-  }
+allowed_region == rg_region
 }

@@ -1,0 +1,384 @@
+import "strings"
+import "types"
+
+_modules = {
+	"root": {
+		"data": {},
+		"path": [],
+		"resources": {
+			"azurerm_linux_virtual_machine": {
+				"main": {
+					0: {
+						"applied": {
+							"additional_capabilities":         [],
+							"admin_password":                  "REDACTED_SENSITIVE",
+							"admin_ssh_key":                   [],
+							"admin_username":                  "oliviac",
+							"allow_extension_operations":      true,
+							"availability_set_id":             null,
+							"boot_diagnostics":                [],
+							"custom_data":                     "REDACTED_SENSITIVE",
+							"dedicated_host_id":               null,
+							"disable_password_authentication": false,
+							"encryption_at_host_enabled":      null,
+							"eviction_policy":                 null,
+							"extensions_time_budget":          "PT1H30M",
+							"identity":                        [],
+							"license_type":                    null,
+							"location":                        "westus2",
+							"max_bid_price":                   -1,
+							"name":                            "babyubuntu-vm",
+							"network_interface_ids": [
+								"/subscriptions/9b918c4b-d51a-4895-a48e-40602eecb35d/resourceGroups/babyubuntu-rg/providers/Microsoft.Network/networkInterfaces/babyubuntu-nic",
+							],
+							"os_disk": [
+								{
+									"caching":                   "ReadWrite",
+									"diff_disk_settings":        [],
+									"disk_encryption_set_id":    null,
+									"storage_account_type":      "Standard_LRS",
+									"write_accelerator_enabled": false,
+								},
+							],
+							"patch_mode":                   null,
+							"plan":                         [],
+							"platform_fault_domain":        -1,
+							"priority":                     "Regular",
+							"provision_vm_agent":           true,
+							"proximity_placement_group_id": null,
+							"resource_group_name":          "babyubuntu-rg",
+							"secret":                       [],
+							"size":                         "Standard_B1s",
+							"source_image_id":              null,
+							"source_image_reference": [
+								{
+									"offer":     "UbuntuServer",
+									"publisher": "Canonical",
+									"sku":       "16.04-LTS",
+									"version":   "latest",
+								},
+							],
+							"tags":                         null,
+							"timeouts":                     null,
+							"virtual_machine_scale_set_id": null,
+						},
+						"destroy": false,
+						"diff": {
+							"additional_capabilities.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"admin_password": {
+								"computed": false,
+								"new":      "REDACTED_SENSITIVE",
+								"old":      "",
+							},
+							"admin_ssh_key.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"admin_username": {
+								"computed": false,
+								"new":      "oliviac",
+								"old":      "",
+							},
+							"allow_extension_operations": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"availability_set_id": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"boot_diagnostics.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"computer_name": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"custom_data": {
+								"computed": false,
+								"new":      "REDACTED_SENSITIVE",
+								"old":      "",
+							},
+							"dedicated_host_id": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"disable_password_authentication": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"encryption_at_host_enabled": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"eviction_policy": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"extensions_time_budget": {
+								"computed": false,
+								"new":      "PT1H30M",
+								"old":      "",
+							},
+							"id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"identity.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"license_type": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"location": {
+								"computed": false,
+								"new":      "westus2",
+								"old":      "",
+							},
+							"max_bid_price": {
+								"computed": false,
+								"new":      "-1",
+								"old":      "",
+							},
+							"name": {
+								"computed": false,
+								"new":      "babyubuntu-vm",
+								"old":      "",
+							},
+							"network_interface_ids.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"network_interface_ids.0": {
+								"computed": false,
+								"new":      "/subscriptions/9b918c4b-d51a-4895-a48e-40602eecb35d/resourceGroups/babyubuntu-rg/providers/Microsoft.Network/networkInterfaces/babyubuntu-nic",
+								"old":      "",
+							},
+							"os_disk.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"os_disk.0.%": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"os_disk.0.caching": {
+								"computed": false,
+								"new":      "ReadWrite",
+								"old":      "",
+							},
+							"os_disk.0.diff_disk_settings.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"os_disk.0.disk_encryption_set_id": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"os_disk.0.disk_size_gb": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"os_disk.0.name": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"os_disk.0.storage_account_type": {
+								"computed": false,
+								"new":      "Standard_LRS",
+								"old":      "",
+							},
+							"os_disk.0.write_accelerator_enabled": {
+								"computed": false,
+								"new":      "false",
+								"old":      "",
+							},
+							"patch_mode": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"plan.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"platform_fault_domain": {
+								"computed": false,
+								"new":      "-1",
+								"old":      "",
+							},
+							"priority": {
+								"computed": false,
+								"new":      "Regular",
+								"old":      "",
+							},
+							"private_ip_address": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"private_ip_addresses.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"provision_vm_agent": {
+								"computed": false,
+								"new":      "true",
+								"old":      "",
+							},
+							"proximity_placement_group_id": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"public_ip_address": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"public_ip_addresses.#": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"resource_group_name": {
+								"computed": false,
+								"new":      "babyubuntu-rg",
+								"old":      "",
+							},
+							"secret.#": {
+								"computed": false,
+								"new":      "0",
+								"old":      "",
+							},
+							"size": {
+								"computed": false,
+								"new":      "Standard_B1s",
+								"old":      "",
+							},
+							"source_image_id": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"source_image_reference.#": {
+								"computed": false,
+								"new":      "1",
+								"old":      "",
+							},
+							"source_image_reference.0.%": {
+								"computed": false,
+								"new":      "4",
+								"old":      "",
+							},
+							"source_image_reference.0.offer": {
+								"computed": false,
+								"new":      "UbuntuServer",
+								"old":      "",
+							},
+							"source_image_reference.0.publisher": {
+								"computed": false,
+								"new":      "Canonical",
+								"old":      "",
+							},
+							"source_image_reference.0.sku": {
+								"computed": false,
+								"new":      "16.04-LTS",
+								"old":      "",
+							},
+							"source_image_reference.0.version": {
+								"computed": false,
+								"new":      "latest",
+								"old":      "",
+							},
+							"tags": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"timeouts": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"virtual_machine_id": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+							"virtual_machine_scale_set_id": {
+								"computed": false,
+								"new":      "",
+								"old":      "",
+							},
+							"zone": {
+								"computed": true,
+								"new":      "",
+								"old":      "",
+							},
+						},
+						"requires_new": false,
+					},
+				},
+			},
+		},
+	},
+}
+
+module_paths = [
+	[],
+]
+
+terraform_version = "1.0.10"
+
+variables = {}
+
+module = func(path) {
+	if types.type_of(path) is not "list" {
+		error("expected list, got", types.type_of(path))
+	}
+
+	if length(path) < 1 {
+		return _modules.root
+	}
+
+	addr = []
+	for path as p {
+		append(addr, "module")
+		append(addr, p)
+	}
+
+	return _modules[strings.join(addr, ".")]
+}
+
+data = _modules.root.data
+path = _modules.root.path
+resources = _modules.root.resources

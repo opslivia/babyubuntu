@@ -1,0 +1,242 @@
+import "strings"
+
+providers = {
+	"azurerm": {
+		"alias": "",
+		"config": {
+			"features": [
+				{},
+			],
+		},
+		"module_address":      "",
+		"name":                "azurerm",
+		"provider_config_key": "azurerm",
+		"version_constraint":  "~> 2.65",
+	},
+}
+
+resources = {
+	"azurerm_linux_virtual_machine.main": {
+		"address": "azurerm_linux_virtual_machine.main",
+		"config": {
+			"admin_password": {
+				"constant_value": ")1!^!@c",
+			},
+			"admin_username": {
+				"constant_value": "oliviac",
+			},
+			"disable_password_authentication": {
+				"constant_value": false,
+			},
+			"location": {
+				"references": [
+					"azurerm_resource_group.main.location",
+					"azurerm_resource_group.main",
+				],
+			},
+			"name": {
+				"constant_value": "babyubuntu-vm",
+			},
+			"network_interface_ids": {
+				"references": [
+					"azurerm_network_interface.main.id",
+					"azurerm_network_interface.main",
+				],
+			},
+			"os_disk": [
+				{
+					"caching": {
+						"constant_value": "ReadWrite",
+					},
+					"storage_account_type": {
+						"constant_value": "Standard_LRS",
+					},
+				},
+			],
+			"resource_group_name": {
+				"references": [
+					"azurerm_resource_group.main.name",
+					"azurerm_resource_group.main",
+				],
+			},
+			"size": {
+				"constant_value": "Standard_B1s",
+			},
+			"source_image_reference": [
+				{
+					"offer": {
+						"constant_value": "UbuntuServer",
+					},
+					"publisher": {
+						"constant_value": "Canonical",
+					},
+					"sku": {
+						"constant_value": "16.04-LTS",
+					},
+					"version": {
+						"constant_value": "latest",
+					},
+				},
+			],
+		},
+		"count":               {},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "managed",
+		"module_address":      "",
+		"name":                "main",
+		"provider_config_key": "azurerm",
+		"provisioners":        [],
+		"type":                "azurerm_linux_virtual_machine",
+	},
+	"azurerm_network_interface.main": {
+		"address": "azurerm_network_interface.main",
+		"config": {
+			"ip_configuration": [
+				{
+					"name": {
+						"constant_value": "babyubuntu-ipconfig",
+					},
+					"private_ip_address_allocation": {
+						"constant_value": "Dynamic",
+					},
+					"subnet_id": {
+						"references": [
+							"azurerm_subnet.internal.id",
+							"azurerm_subnet.internal",
+						],
+					},
+				},
+			],
+			"location": {
+				"references": [
+					"azurerm_resource_group.main.location",
+					"azurerm_resource_group.main",
+				],
+			},
+			"name": {
+				"constant_value": "babyubuntu-nic",
+			},
+			"resource_group_name": {
+				"references": [
+					"azurerm_resource_group.main.name",
+					"azurerm_resource_group.main",
+				],
+			},
+		},
+		"count":               {},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "managed",
+		"module_address":      "",
+		"name":                "main",
+		"provider_config_key": "azurerm",
+		"provisioners":        [],
+		"type":                "azurerm_network_interface",
+	},
+	"azurerm_resource_group.main": {
+		"address": "azurerm_resource_group.main",
+		"config": {
+			"location": {
+				"constant_value": "westus2",
+			},
+			"name": {
+				"constant_value": "babyubuntu-rg",
+			},
+		},
+		"count":               {},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "managed",
+		"module_address":      "",
+		"name":                "main",
+		"provider_config_key": "azurerm",
+		"provisioners":        [],
+		"type":                "azurerm_resource_group",
+	},
+	"azurerm_subnet.internal": {
+		"address": "azurerm_subnet.internal",
+		"config": {
+			"address_prefixes": {
+				"constant_value": [
+					"10.0.2.0/24",
+				],
+			},
+			"name": {
+				"constant_value": "babyubuntu-subnet",
+			},
+			"resource_group_name": {
+				"references": [
+					"azurerm_resource_group.main.name",
+					"azurerm_resource_group.main",
+				],
+			},
+			"virtual_network_name": {
+				"references": [
+					"azurerm_virtual_network.main.name",
+					"azurerm_virtual_network.main",
+				],
+			},
+		},
+		"count":               {},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "managed",
+		"module_address":      "",
+		"name":                "internal",
+		"provider_config_key": "azurerm",
+		"provisioners":        [],
+		"type":                "azurerm_subnet",
+	},
+	"azurerm_virtual_network.main": {
+		"address": "azurerm_virtual_network.main",
+		"config": {
+			"address_space": {
+				"constant_value": [
+					"10.0.0.0/16",
+				],
+			},
+			"location": {
+				"references": [
+					"azurerm_resource_group.main.location",
+					"azurerm_resource_group.main",
+				],
+			},
+			"name": {
+				"constant_value": "babyubuntu-vnet",
+			},
+			"resource_group_name": {
+				"references": [
+					"azurerm_resource_group.main.name",
+					"azurerm_resource_group.main",
+				],
+			},
+		},
+		"count":               {},
+		"depends_on":          [],
+		"for_each":            {},
+		"mode":                "managed",
+		"module_address":      "",
+		"name":                "main",
+		"provider_config_key": "azurerm",
+		"provisioners":        [],
+		"type":                "azurerm_virtual_network",
+	},
+}
+
+provisioners = {}
+
+variables = {}
+
+outputs = {}
+
+module_calls = {}
+
+strip_index = func(addr) {
+	s = strings.split(addr, ".")
+	for s as i, v {
+		s[i] = strings.split(v, "[")[0]
+	}
+
+	return strings.join(s, ".")
+}

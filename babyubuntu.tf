@@ -55,11 +55,6 @@ resource "azurerm_linux_virtual_machine" "main" {
     azurerm_network_interface.main.id,
   ]
   
-  admin_ssh_key {
-    username   = "oliviac"
-    public_key = file("~/.ssh/id_rsa.pub")
-  }  
-  
   os_disk {
     caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"
@@ -71,42 +66,12 @@ resource "azurerm_linux_virtual_machine" "main" {
     sku       = "16.04-LTS"
     version   = "latest"
   }
-}
-
-resource "azurerm_public_ip" "main" {
-  name                = "babyubuntu-pubip"
-  resource_group_name = azurerm_resource_group.main.name
-  location            = azurerm_resource_group.main.location
-  allocation_method   = "Dynamic"
-
-  tags = {
-    environment = "Production"
+  os_profile {
+    computer_name  = "hostname"
+    admin_username = "ocadmin"
+    admin_password = "0c@dm!n"
   }
-}
-
-resource "azurerm_network_security_group" "main" {
-  name                = "babyubuntu-secgroup"
-  location            = azurerm_resource_group.main.location
-  resource_group_name = azurerm_resource_group.main.name
-
-  security_rule {
-    name                       = "ssh"
-    priority                   = 100
-    direction                  = "Inbound"
-    access                     = "Allow"
-    protocol                   = "Tcp"
-    source_port_range          = "*"
-    destination_port_range     = "22"
-    source_address_prefix      = "*"
-    destination_address_prefix = "*"
+  os_profile_linux_config {
+    disable_password_authentication = false
   }
-
-  tags = {
-    environment = "Production"
-  }
-}
-
-resource "azurerm_network_interface_security_group_association" "main" {
-  network_interface_id      = azurerm_network_interface.main.id
-  network_security_group_id = azurerm_network_security_group.main.id
 }
